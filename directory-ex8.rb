@@ -32,7 +32,7 @@ def print(students)
   iterator = 0
   
   until iterator == students.length
-    puts "#{iterator + 1}. #{students[iterator][:name]} (#{students[iterator][:cohort]} cohort, height #{students[iterator][:height]})"
+    puts "#{iterator + 1}. #{students[iterator][:name].center(40)} (#{students[iterator][:cohort]} cohort, height #{students[iterator][:height]})"
     iterator += 1
   end
 
