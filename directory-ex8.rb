@@ -25,15 +25,22 @@ end
 def print(students)
   
   iterator = 0
-  while iterator < students.length
+  
+  until iterator == students.length
     puts "#{iterator + 1}. #{students[iterator][:name]} (#{students[iterator][:cohort]} cohort)"
     iterator += 1
   end
+  
+#  while iterator < students.length
+#    puts "#{iterator + 1}. #{students[iterator][:name]} (#{students[iterator][:cohort]} cohort)"
+#    iterator += 1
+#  end
 #  students.each_with_index do |student, index|
 #    if student[:name].length < 12
 #      puts "#{index + 1}. #{student[:name]} (#{student[:cohort]} cohort)"
 #    end
 #  end
+
 end
 
 def print_footer(students)
