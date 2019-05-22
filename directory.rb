@@ -43,6 +43,7 @@ def print_menu
   # 1. print the menu and ask the user what to do
   puts "1. Input the students"
   puts "2. Show the students"
+  puts "3. Save the list to students.csv"
   puts "9. Exit" # 9 because we'll be adding more items
 end
 
@@ -58,11 +59,25 @@ def process(selection)
       input_students
     when "2"
       show_students
+    when "3"
+      save_students
     when "9"
       exit
     else
       puts "I don't know what you mean, try again"
   end
+end
+
+def save_students
+  # open file
+  file = File.open("students.csv", "w")
+  # interate over @students
+  @students.each do |student|
+    student_data = [student[:name], student[:cohort]] #create a simple 2 element array based on the student hash
+    csv_line = student_data.join(",") #create a string from the array, with the elements joined with a comma
+    file.puts csv_line #write the string to the file reference
+  end
+  file.close
 end
 
 interactive_menu
