@@ -65,11 +65,18 @@ end
 
 def print(students)
   
-  iterator = 0
+  #get the list of unique cohorts
+  cohorts = students.map { |student| student[:cohort] }
+  cohorts.uniq!
   
-  until iterator == students.length
-    puts "#{iterator + 1}. #{students[iterator][:name].center(40)} (#{students[iterator][:cohort]} cohort, height #{students[iterator][:height]})"
-    iterator += 1
+  #print the students grouped by cohort
+  cohorts.each do |cohort|
+    students_this_cohort = students.select { |student| student[:cohort] == cohort }
+    iterator = 0
+    until iterator == students_this_cohort.length
+      puts "#{iterator + 1}. #{students_this_cohort[iterator][:name].center(40)} (#{students_this_cohort[iterator][:cohort]} cohort, height #{students[iterator][:height]})"
+      iterator += 1
+    end
   end
 
 end
