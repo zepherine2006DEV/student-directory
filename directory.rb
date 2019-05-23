@@ -1,3 +1,5 @@
+require 'csv'
+
 @students = []
 
 def input_students
@@ -95,11 +97,9 @@ def user_load_students
 end
 
 def load_students(filename = "students.csv")
-  File.open(filename, "r") do |file|
-    file.readlines.each do |line|
-      name, cohort = line.chomp.split(',')
-      add_student(name, cohort.to_sym)
-    end
+  CSV.foreach(filename) do |row|
+    name, cohort = row
+    add_student(name, cohort.to_sym)
   end
   puts "Students successfully loading from file."
 end
