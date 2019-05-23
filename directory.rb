@@ -72,13 +72,13 @@ end
 def save_students
   puts "Please enter the filename, then hit enter."
   filename = STDIN.gets.chomp
-  file = File.open(filename, "w")
-  @students.each do |student|
-    student_data = [student[:name], student[:cohort]] #create a simple 2 element array based on the student hash
-    csv_line = student_data.join(",") #create a string from the array, with the elements joined with a comma
-    file.puts csv_line #write the string to the file reference
+  File.open(filename, "w") do |file|
+    @students.each do |student|
+      student_data = [student[:name], student[:cohort]] #create a simple 2 element array based on the student hash
+      csv_line = student_data.join(",") #create a string from the array, with the elements joined with a comma
+      file.puts csv_line #write the string to the file reference
+    end
   end
-  file.close
   puts "Students successfully saved to file."
 end
 
@@ -95,12 +95,12 @@ def user_load_students
 end
 
 def load_students(filename = "students.csv")
-  file = File.open(filename, "r") #open the file read-only
-  file.readlines.each do |line|
-    name, cohort = line.chomp.split(',')
-    add_student(name, cohort.to_sym)
+  File.open(filename, "r") do |file|
+    file.readlines.each do |line|
+      name, cohort = line.chomp.split(',')
+      add_student(name, cohort.to_sym)
+    end
   end
-  file.close
   puts "Students successfully loading from file."
 end
 
