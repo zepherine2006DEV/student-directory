@@ -74,11 +74,10 @@ end
 def save_students
   puts "Please enter the filename, then hit enter."
   filename = STDIN.gets.chomp
-  File.open(filename, "w") do |file|
+  CSV.open(filename, 'w') do |csv_object|
     @students.each do |student|
-      student_data = [student[:name], student[:cohort]] #create a simple 2 element array based on the student hash
-      csv_line = student_data.join(",") #create a string from the array, with the elements joined with a comma
-      file.puts csv_line #write the string to the file reference
+      student_data = [student[:name], student[:cohort]]
+      csv_object << student_data
     end
   end
   puts "Students successfully saved to file."
