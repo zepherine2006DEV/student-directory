@@ -5,11 +5,14 @@ It is an training exercise, completed during the pre-course of Makers Academy.
 
 ## How to use ##
 
-Run the scrip directly from the command line.
+* Ensure you have ruby installed.
+* Run the script directly from the command line.
 
 ```shell
-ruby directory.rb
+ruby directory.rb <filename>
 ```
+The optional <filename> argument tells the script to read students from that file.
+
 
 ## File Manifest ##
 
@@ -19,3 +22,8 @@ ruby directory.rb
 * **printmycode.rb** - simple program which reads its own file and prints its code to STDOUT.
 
 (git config and repo files are also included)
+
+
+## Running Tests ##
+
+(There are no tests for this project.)
