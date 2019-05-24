@@ -13,9 +13,9 @@ ruby directory.rb
 
 ## File Manifest ##
 
-directory.rb - main version of the student directory code.
-directory-ex8.rb - version of the student directory code including changes relating to the challenges set in "Step 8: Exercises".
-typos.rb - version of the student directory code based on the "typos" challenge. All typos corrected.
-printmycode.rb - simple program which reads its own file and prints its code to STDOUT.
+* **directory.rb** - main version of the student directory code.
+* **directory-ex8.rb** - version of the student directory code including changes relating to the challenges set in "Step 8: Exercises".
+* **typos.rb** - version of the student directory code based on the "typos" challenge. All typos corrected.
+* **printmycode.rb** - simple program which reads its own file and prints its code to STDOUT.
 
 (git config and repo files are also included)
